@@ -16,6 +16,7 @@ export class LibraryPage implements OnInit {
 
   ngOnInit() {
     this.quoteCollection = quotes;
+    console.log(quotes);
   }
 
 }
