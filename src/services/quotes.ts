@@ -4,7 +4,13 @@ export class QuotesService {
   private favoriteQuotes: Quote[] = [];
 
   addQuoteToFavorites(quote: Quote){
-    this.favoriteQuotes.push(quote);
+    const quoteAlreadyAdded = this.favoriteQuotes.find((quoteEl: Quote) => {
+      return quoteEl.id == quote.id;
+    })
+    console.log(quoteAlreadyAdded);
+    if(!quoteAlreadyAdded){
+      this.favoriteQuotes.push(quote);
+    }
   }
 
   removeQuoteFromFavorites(quote: Quote){
