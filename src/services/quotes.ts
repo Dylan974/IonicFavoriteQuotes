@@ -4,13 +4,7 @@ export class QuotesService {
   private favoriteQuotes: Quote[] = [];
 
   addQuoteToFavorites(quote: Quote){
-    const quoteAlreadyAdded = this.favoriteQuotes.find((quoteEl: Quote) => {
-      return quoteEl.id == quote.id;
-    })
-    console.log(quoteAlreadyAdded);
-    if(!quoteAlreadyAdded){
-      this.favoriteQuotes.push(quote);
-    }
+    this.favoriteQuotes.push(quote);
   }
 
   removeQuoteFromFavorites(quote: Quote){
@@ -23,6 +17,12 @@ export class QuotesService {
   getFavoriteQuotes(){
     // add slice to return a copy of the array
     return this.favoriteQuotes.slice();
+  }
+
+  isQuoteFavorite(quote: Quote){
+    return this.favoriteQuotes.find((quoteEl: Quote) => {
+      return quoteEl.id == quote.id;
+    });
   }
 
 }
